@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI绘画提示词生成器</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <main class="builder-page">
+      <section class="panel info-panel">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">重点信息</p>
+            <h2>当前核心组合</h2>
+          </div>
+          <div class="info-actions">
+            <a class="ghost-button link-button" href="index.html">返回首页</a>
+            <button id="resetButton" class="ghost-button" type="button">恢复默认</button>
+          </div>
+        </div>
+        <div id="keyHighlights" class="highlight-list"></div>
+      </section>
+
+      <section class="panel core-panel">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">核心设置</p>
+            <h2>一面内完成主要选择</h2>
+          </div>
+        </div>
+        <div id="coreGrid" class="core-grid"></div>
+      </section>
+
+      <section class="panel output-panel">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">最终提示词</p>
+            <h2>拼接结果</h2>
+          </div>
+          <button id="copyButton" class="primary-button" type="button">复制提示词</button>
+        </div>
+        <textarea id="promptOutput" readonly spellcheck="false"></textarea>
+      </section>
+    </main>
+  </div>
+
+  <div id="optionModal" class="modal" hidden>
+    <div class="modal-backdrop" data-close-modal="true"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <div>
+          <p class="section-kicker">选项面板</p>
+          <h3 id="modalTitle">选择项目</h3>
+        </div>
+        <button id="closeModalButton" class="ghost-button modal-close" type="button">关闭</button>
+      </div>
+      <p id="modalHint" class="modal-hint"></p>
+      <div id="modalOptions" class="modal-options"></div>
+      <div class="modal-foot">
+        <button id="clearModalButton" class="ghost-button" type="button">清空选择</button>
+        <button id="doneModalButton" class="primary-button" type="button">完成</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="advancedModal" class="modal" hidden>
+    <div class="modal-backdrop" data-close-advanced="true"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="advancedModalTitle">
+      <div class="modal-head">
+        <div>
+          <p class="section-kicker">高级设置</p>
+          <h3 id="advancedModalTitle">补充细节</h3>
+        </div>
+        <button id="closeAdvancedModalButton" class="ghost-button modal-close" type="button">关闭</button>
+      </div>
+      <p id="advancedModalHint" class="modal-hint"></p>
+      <div id="advancedModalBody" class="advanced-modal-body"></div>
+      <div class="modal-foot">
+        <button id="doneAdvancedModalButton" class="primary-button" type="button">完成</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
